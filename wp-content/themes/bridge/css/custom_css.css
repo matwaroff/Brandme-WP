@@ -1,0 +1,151 @@
+
+
+.q_counter_holder.center{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.q_counter_holder p.counter_text {
+margin: 30px 0 0;
+}
+
+.q_progress_bar {
+    position: relative;
+    margin: 0 0 40px 0;
+}
+
+header.sticky .header_bottom .qode_icon_shortcode {
+    border-color: #40426c !important;
+}
+
+header.sticky .header_bottom .qode_icon_shortcode .qode_icon_element {
+    color: #40426c !important;
+}
+
+header.sticky .header_bottom .qode_icon_shortcode:hover {
+    background-color: #58b4ac !important;
+}
+
+header.sticky .header_bottom .qode_icon_shortcode:hover .qode_icon_element {
+    color: #58b4ac !important;
+}
+
+header:not(.with_hover_bg_color) nav.main_menu > ul > li > a span:not(.plus) {
+padding: 11px 16px;
+}
+
+header:not(.with_hover_bg_color) nav.main_menu > ul > li:hover > a{
+    opacity: 1;
+}
+
+.wpcf7 form.wpcf7-form p {
+    margin-bottom: 13px;
+}
+
+.cf7_custom_style_2 input.wpcf7-form-control.wpcf7-submit, .cf7_custom_style_2 input.wpcf7-form-control.wpcf7-submit:not([disabled]) {
+    margin-top: 9px;
+}
+
+.q_dropcap{
+    margin: 0px 18px 0px 0px;
+}
+
+.carousel-inner .slider_content .text .qbutton.black {
+margin: 10px 0 0 16px;
+}
+
+.testimonials .testimonial_text_inner p.testimonial_author {
+margin-top: 45px;
+margin-bottom: 11px;
+}
+
+.testimonials_holder .flex-direction-nav a {
+width: 33px;
+height: 33px;
+}
+
+.testimonials_holder .flex-direction-nav li:first-child {
+margin-right: 2px;
+}
+
+.testimonials_holder .flex-direction-nav a:before {
+font-size: 20px;
+line-height: 29px;
+left: 1px;
+}
+
+@media screen and (max-width: 600px) {
+.title.title_size_medium h1 {
+font-size: 28px;
+letter-spacing: 2px;
+line-height: 30px;
+}
+}
+
+.comments .comment .text .comment_date {
+    font-size: 14px;
+    font-weight: 500;
+    color: #303030;
+}
+
+.comments .comment .text .text_holder {
+    margin: 13px 0 0;
+}
+
+.comment_holder .comment {
+    padding: 34px 25px 37px;
+    background-color: #f9f9f9;
+}
+
+.cover_boxes ul li .box .box_content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 21px;
+}
+
+.cover_boxes ul li .box .qbutton {
+    margin: 38px 0 0;
+    padding-left: 28px;
+    padding-right: 27px;
+    border-radius: 3px;
+}
+
+@media screen and (min-width: 1001px) {
+.cover_boxes ul li .box .box_content {
+padding-left: 4px;
+}
+}
+
+.blog_holder article .post_text .post_text_inner {
+    padding: 35px 36px 41px;
+}
+
+.blog_holder article .post_more .qbutton.small {
+    height: 45px;
+    line-height: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+    letter-spacing: 2px;
+}
+
+.dark.header_style_on_scroll nav.main_menu > ul > li.active > a, .dark.header_style_on_scroll nav.main_menu > ul > li:not(:first-child)::before, .dark.header_style_on_scroll nav.main_menu > ul > li > a, .dark:not(.sticky):not(.scrolled) nav.main_menu > ul > li.active > a, .dark:not(.sticky):not(.scrolled) nav.main_menu > ul > li:not(:first-child)::before, .dark:not(.sticky):not(.scrolled) nav.main_menu > ul > li > a{
+color: #fff !important;
+}
+header.sticky nav.main_menu > ul > li > a, header.light.sticky nav.main_menu > ul > li > a, header.dark.sticky nav.main_menu > ul > li > a{
+color:#40426c !important;
+}
+
+header.dark:not(.sticky) .textwidget span {
+    color: #fff !important;
+}
+header.dark:not(.sticky) .textwidget span:hover{
+    color: #000!important;
+}
+header.sticky .header_bottom .qode_icon_shortcode:hover .qode_icon_element{
+color: #fff!important;
+}
+fa-angle-right, fa-angle-left{
+color: #57b4ad !important;
+}
