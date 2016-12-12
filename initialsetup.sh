@@ -12,7 +12,7 @@ logout
 sudo ssh-keygen
 sudo -u$name ssh-keygen
 sudo vi ~/.bashrc
-sudo apt-get install apache2 mysql-server php vsftpd
+sudo apt-get install apache2 libapache2-mod-php php vsftpd mysql-server 
 sudo mysql_secure_installation
 sudo echo '[mysqld]\nsql-mode=' >> /etc/mysql/my.cnf
 sudo vi /etc/apache2/sites-available/000-default.conf
