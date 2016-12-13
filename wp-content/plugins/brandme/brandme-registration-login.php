@@ -51,7 +51,7 @@ add_shortcode('login_form', 'brandme_login_form');
 function add_brandme_autocomplete_scripts(){
     wp_enqueue_script("jquery-effects-core");
     wp_enqueue_script("jquery-ui-core");
-}
+}t
 add_action( 'wp_enqueue_scripts', 'add_brandme_autocomplete_scripts' );
 
 // registration form fields
@@ -188,25 +188,22 @@ add_action('init', 'brandme_login_member');
 
 //REGISTER a new user
 function brandme_add_new_member(){
-	if(isset( $_POST['brandme_user_login']) && wp_verify_nonce($_POST['brandme_register_nonce'], 'brandme-register-nonce')){
-		echo "<h1>SUCCESS</h1>";
-		$user_login	= $_POST['brandme_user_login'];
+	if(isset( $_POST['brandme_user_email']) && wp_verify_nonce($_POST['brandme_register_nonce'], 'brandme-register-nonce')){
 		$user_email = $_POST['brandme_user_email'];
 		$user_first = $_POST['brandme_user_first'];
 		$user_last = $_POST['brandme_user_last'];
 		$user_pass = $_POST['brandme_user_pass'];
 		$pass_confirm = $_POST['brandme_user_pass_confirm'];
-		
-		require_once(ABSPATH . WPINC . '/registration.php');
+		$user_login = $user_first . " " . $user_last;
 		if(username_exists($user_login)){
-			brandme_errors()->add('username_unavailable',  __('Username already taken'));
+			brandme_errors()->add('username_unavailable',  __('Email already in use'));
 		}
 		if(!validate_username($user_login)){
-			brandme_errors()->add('username_invalid',  __('Invalid username'));
+			brandme_errors()->add('username_invalid',  __('Invalid email'));
 		}
-		if($user_login == '') {
+		if($user_email == '') {
 			// empty username
-			brandme_errors()->add('username_empty', __('Please enter a username'));
+			brandme_errors()->add('username_empty', __('Please enter an email'));
 		}
 		if(!is_email($user_email)) {
 			//invalid email
@@ -226,7 +223,6 @@ function brandme_add_new_member(){
 		}
 		
 		$errors = brandme_errors()->get_error_messages();
-                brandme_show_error_messages();
 		if(empty($errors)){
 			$new_user_id = wp_insert_user(array(
 				'user_login' => $user_login,
@@ -244,7 +240,7 @@ function brandme_add_new_member(){
 				wp_set_current_user($new_user_id, $user_login);
 				do_action('wp_login', $user_login);
 				
-				wp_redirect(home_url() . "/login"); exit;
+				wp_redirect(_url()); exit;
 			}
 		}
 	}
