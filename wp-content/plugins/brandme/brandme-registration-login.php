@@ -189,6 +189,7 @@ add_action('init', 'brandme_login_member');
 
 //REGISTER a new user
 function brandme_add_new_member(){
+	echo "<h1>SUCCESS</h1>";
 	if(isset( $_POST['brandme_user_login']) && wp_verify_nonce($_POST['brandme_register_nonce'], 'brandme-register-nonce')){
 		echo "<h1>SUCCESS</h1>";
 		$user_login	= $_POST['brandme_user_login'];
