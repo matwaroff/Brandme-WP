@@ -104,12 +104,9 @@ function brandme_registration_form_fields() {
                         <h2 class="fs-title">Favorite Color</h2>
                         <h3 class="fs-subtitle">Step 4</h3>
                         <input type="text" id="brandme_fav_color" name="brandme_fav_color" placeholder="<?php _e('Fav Color'); ?>"/>
-                        <input type="button" name="next" class="next action-button" value="<?php _e('Next'); ?>"/>
+						<input type="button" name="previous" class="previous action-button" value="<?php _e('Previous'); ?>"/>
+						<input type="submit" name="submit" class="submit action-button" value="<?php _e('Submit'); ?>"/>
                     </fieldset>
-                    <fieldset>
-                        <input type="submit" name="submit" class="submit action-button" value="<?php _e('Submit'); ?>"/>
-                    </fieldset>
-                    
                     <input type="hidden" name="brandme_register_nonce" value="<?php echo wp_create_nonce('brandme-register-nonce'); ?>"/>
 		</form>
                 <!-- jQuery easing plugin -->
@@ -193,6 +190,7 @@ add_action('init', 'brandme_login_member');
 //REGISTER a new user
 function brandme_add_new_member(){
 	if(isset( $_POST['brandme_user_login']) && wp_verify_nonce($_POST['brandme_register_nonce'], 'brandme-register-nonce')){
+		echo "<h1>SUCCESS</h1>";
 		$user_login	= $_POST['brandme_user_login'];
 		$user_email = $_POST['brandme_user_email'];
 		$user_first = $_POST['brandme_user_first'];
@@ -237,7 +235,7 @@ function brandme_add_new_member(){
 				'user_email' => $user_email,
 				'first_name' => $user_first,
 				'last_name' => $user_last,
-				'user_registered' => data('Y-m-d H:i:s'),
+				'user_registered' => date('Y-m-d H:i:s'),
 				'role' => 'subscriber'
 				));
 			if($new_user_id){
