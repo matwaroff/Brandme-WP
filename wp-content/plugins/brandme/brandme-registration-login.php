@@ -58,7 +58,6 @@ add_action( 'wp_enqueue_scripts', 'add_brandme_autocomplete_scripts' );
 function brandme_registration_form_fields() {
  
 	ob_start(); ?>
-                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&signed_in=true"></script>
 		<h3 class="brandme_header"><?php _e('Register'); ?></h3>
  
 		<?php 
@@ -189,7 +188,6 @@ add_action('init', 'brandme_login_member');
 
 //REGISTER a new user
 function brandme_add_new_member(){
-	echo "<h1>SUCCESS</h1>";
 	if(isset( $_POST['brandme_user_login']) && wp_verify_nonce($_POST['brandme_register_nonce'], 'brandme-register-nonce')){
 		echo "<h1>SUCCESS</h1>";
 		$user_login	= $_POST['brandme_user_login'];
