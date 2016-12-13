@@ -23,6 +23,8 @@ function brandme_registration_form(){
 		return $output;
 		
 		
+	}else{
+		wp_redirect("home");
 	}
 }
 add_shortcode('register_form', 'brandme_registration_form');
@@ -47,13 +49,6 @@ function brandme_login_form() {
 add_shortcode('login_form', 'brandme_login_form');
 
 function add_brandme_autocomplete_scripts(){
-    wp_enqueue_script(
-		'brandme-maps-google-maps',
-		'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&signed_in=true&key=AIzaSyA-LqxT-FJD_d67EdRt8izVF8S2HEbA6os',
-		array(),
-		'1.0.0',
-		true
-	);
     wp_enqueue_script("jquery-effects-core");
     wp_enqueue_script("jquery-ui-core");
 }
@@ -70,7 +65,7 @@ function brandme_registration_form_fields() {
 		// show any error messages after form submission
 		brandme_show_error_messages(); ?>
  
-		<form id="brandme_registration_form" class="brandme_form" action="" method="GET">
+		<form id="brandme_registration_form" class="brandme_form" action="" method="POST">
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active"><?php _e('Account Setup'); ?></li>
@@ -252,7 +247,7 @@ function brandme_add_new_member(){
 				wp_set_current_user($new_user_id, $user_login);
 				do_action('wp_login', $user_login);
 				
-				wp_redirect(home_url()); exit;
+				wp_redirect(home_url() . "/login"); exit;
 			}
 		}
 	}
