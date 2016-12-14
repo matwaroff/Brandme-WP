@@ -51,7 +51,7 @@ add_shortcode('login_form', 'brandme_login_form');
 function add_brandme_autocomplete_scripts(){
     wp_enqueue_script("jquery-effects-core");
     wp_enqueue_script("jquery-ui-core");
-}t
+}
 add_action( 'wp_enqueue_scripts', 'add_brandme_autocomplete_scripts' );
 
 // registration form fields
