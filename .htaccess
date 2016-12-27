@@ -2,8 +2,7 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
-RewriteRule ^user\/(.*)\/ user/?u=$1
-RewriteRule ^edit-profile user/?edit=true
+RewriteRule ^profile\/(.*)\/ profile/?u=$1
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

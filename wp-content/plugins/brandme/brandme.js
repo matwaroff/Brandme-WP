@@ -114,10 +114,11 @@ jQuery("#brandme_user_email").focusout(function(){
 	var value = jQuery(this).val();
 	var emailRegex = new RegExp('^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$');	
 	console.log("Hello");	
-	if(emailRegex.test(value)){
+	/*if(emailRegex.test(value)){
 		if(jQuery(".error-text.email").length == 0){
 			return;
 		}else{
+			console.log("Hello");	
 			jQuery(".error-text.email").remove();
 			return;
 		}
@@ -129,5 +130,5 @@ jQuery("#brandme_user_email").focusout(function(){
 		}else{
 			return;
 		}
-	}
+	}*/
 });

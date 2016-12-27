@@ -1,10 +1,5 @@
 <?php
 
-/*
-   Plugin Name: BrandMe Login and Registration
-   Description: Provides simple front end registration and login forms
-   Version: 1.0
-   Author: Mathew Waroff*/
 
 function brandme_registration_form(){
 	if(!is_user_logged_in()){
