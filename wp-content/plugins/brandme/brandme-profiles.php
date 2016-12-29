@@ -11,9 +11,9 @@ function brandme_profile_page(){
 	if($user_slug != null){
 		$user = get_user_from_meta(SLUGMETA, $user_slug);
 		if(isset($user)){
-			if(get_user_meta($user->ID, 'bm_public_profile')[0] != 0){
+			if(is_profile_public($user->ID) === TRUE)
 				return brandme_profile_page_format($user);
-			}else
+			else
 				return "<h1>This user's profile is not public</h1>";
 		}		
 	}
@@ -55,6 +55,7 @@ function brandme_profile_edit_page_format($user){
 }
 
 function brandme_profile_page_format($user){
+		$pdata = get_user_data($user->ID);
 		ob_start(); ?>
 		<form id="brandme_profile_form" class="profile" name="brandme_profile_form" action="" method="POST">
 			<div id="title"><h1><?php _e($user->display_name); ?></div>
@@ -62,7 +63,8 @@ function brandme_profile_page_format($user){
 			<div id="body">
 				<span class="profile-text">
 				<h3>Bio:</h3>
-				<?php _e(get_user_meta($user->ID, BIOMETA)[0]); ?></span>
+				<?php _e($pdata->Bio); ?>
+				</span><br/>
 			</div>
 		</form>
 		<?php
@@ -110,3 +112,41 @@ function get_user_from_meta($metakey, $metaval){
 	return (sizeof($user->results) !=0 && sizeof($user->results) <= 1) ? $user->results[0] : NULL;
 }
 
+function get_user_data($userid){
+	global $wpdb;
+	$results = $wpdb->get_results($wpdb->prepare("SELECT * FROM bm_profile WHERE ID=%d",$userid));
+	if($results){
+		return $results[0];
+	}else
+		echo "QUERY FAILED";
+}
+
+function get_user_field($userid, $field){
+	global $wpdb;
+	if($field == "ID") //Skip connection if the requeste field is the user id
+		return $userid;
+
+	$results = $wpdb->get_results($wpdb->prepare("SELECT '%s' FROM bm_profile WHERE ID=%d", $field, $userid));
+	print_r($results[0]);
+	if($results){
+		return($results[0]->$field);
+	}else
+		echo "QUERY FAILED";
+}
+
+function update_user_field($userid, $field, $newdata){
+	global $wpdb;
+	if($field == "ID") //Skip connection if the requeste field is the user id
+		return "CANNOT UPDATE ID";
+
+$results = $wpdb->get_results($wpdb->prepare("UPDATE bm_profile SET %s='%s' WHERE ID=%d", $field, $newdata, $userid));
+	if($results){
+		print_r($results[0]);
+	}else
+		echo "QUERY FAILED";
+	
+}
+
+function is_profile_public($userid){
+	return (get_user_field($userid, 'Public') == 1) ? TRUE : FALSE;
+}
